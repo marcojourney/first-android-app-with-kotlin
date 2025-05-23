@@ -52,5 +52,5 @@ jobs:
         run: |
           ./gradlew clean build sonarqube \
             -Dsonar.projectKey=android-kotlin \
-            -Dsonar.host.url=https://dev-sonarqube.wingecosys.com \
+            -Dsonar.host.url=http://202.79.29.108:9000 \
             -Dsonar.login=sqp_7d5ea102d65f7a9f82a0578b4c32930d174afdce
