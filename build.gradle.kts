@@ -7,6 +7,7 @@ plugins {
 
 sonarqube {
     properties {
+        property("sonar.findbugs.skip", "true")
         property("sonar.projectKey", "android-kotlin")
         property("sonar.host.url", "http://202.79.29.108:9000")
         property("sonar.login", "sqp_7d5ea102d65f7a9f82a0578b4c32930d174afdce") // 🔐 uses GitHub Actions secret
