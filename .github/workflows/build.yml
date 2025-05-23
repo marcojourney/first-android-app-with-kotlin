@@ -48,6 +48,10 @@ jobs:
       # ✅ Build project
       - name: Build project
         run: ./gradlew build
+      
+      # ✅ Build release
+      - name: Build AAB
+        run: ./gradlew bundleRelease
 
       # ✅ Run build & SonarCloud analysis
       - name: Run SonarCloud analysis
@@ -64,3 +68,9 @@ jobs:
         with:
           name: debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+        
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab
+          path: app/build/outputs/bundle/release/app-release.aab
