@@ -44,13 +44,16 @@ jobs:
       # ✅ Grant execute permission to Gradle wrapper
       - name: Grant Gradle wrapper permission
         run: chmod +x ./gradlew
+      
+      # ✅ Build project
+      - name: Build project
+        run: ./gradlew build
 
       # ✅ Run build & SonarCloud analysis
       - name: Run SonarCloud analysis
         env:
           SONAR_TOKEN: sqp_7d5ea102d65f7a9f82a0578b4c32930d174afdce
         run: |
-          ./gradlew build
           ./gradlew clean build sonarqube \
             -Dsonar.projectKey=android-kotlin \
             -Dsonar.host.url=http://202.79.29.108:9000 \
