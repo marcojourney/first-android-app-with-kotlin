@@ -67,7 +67,14 @@ dependencies {
 
 sonarqube {
     properties {
+        // Add the path to Android's Kotlin compiled classes
+        property("sonar.java.binaries", "${project.buildDir}/intermediates/javac/debug/classes")
+
+        // Optionally for Kotlin classes
+        property("sonar.kotlin.binaries", "${project.buildDir}/tmp/kotlin-classes/debug")
+
         property("sonar.findbugs.skip", "true")
+        
         property("sonar.projectKey", "android-kotlin")
         property("sonar.host.url", "http://202.79.29.108:9000")
         property("sonar.login", "sqp_7d5ea102d65f7a9f82a0578b4c32930d174afdce") // 🔐 uses GitHub Actions secret
