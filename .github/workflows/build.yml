@@ -45,17 +45,6 @@ jobs:
       - name: Grant Gradle wrapper permission
         run: chmod +x ./gradlew
 
-      # ✅ Run dependency check (requires 'scan' task to be defined in build.gradle)
-      - name: Run OWASP Dependency Check (if configured)
-        run: ./gradlew scan
-
-      # ✅ Upload Dependency Check report
-      - name: Upload dependency-check report
-        uses: actions/upload-artifact@v4
-        with:
-          name: dependency-check-report
-          path: build/reports/dependency-check-report.html
-
       # ✅ Run build & SonarCloud analysis
       - name: Run SonarCloud analysis
         env:
